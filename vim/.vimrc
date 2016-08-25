@@ -3,6 +3,7 @@ set nu
 set t_co=256
 set showtabline=2
 set rtp+=~/.vim/bundle/vundle/
+set nobackup
 call vundle#rc()
 
 " 关闭NERDTree快捷键
@@ -51,6 +52,7 @@ let g:NERDTreeIndicatorMapCustom = {
  Bundle 'scrooloose/nerdtree'
  Bundle 'jistr/vim-nerdtree-tabs'
  Bundle 'Xuyuanp/nerdtree-git-plugin'
+ Bundle 'suan/vim-instant-markdown'
  " ...  
   
  filetype plugin indent on     " required!  
