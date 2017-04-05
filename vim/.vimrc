@@ -2,9 +2,8 @@ colorscheme evening
 set nu
 set t_co=256
 set showtabline=2
-set rtp+=~/.vim/bundle/vundle/
 set nobackup
-call vundle#rc()
+set relativenumber
 
 " 关闭NERDTree快捷键
 map <leader>t :NERDTreeToggle<CR>
@@ -34,34 +33,41 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 
-" let Vundle manage Vundle  
-" required!   
-"这是vundle本身的设置  
- Bundle 'gmarik/vundle'    
-   
- " My Bundles here:  
- "这里是设置你自己自定义的插件的设置vundle设置，注意：下载的插件git为：https://github.com/godlygeek/tabular.git，则设置为Bundle 'godlygeek/tabular';https://github.com/gmarik/vundle.git设置则为 Bundle 'gmarik/vundle'    
- " original repos on github  
- Bundle 'godlygeek/tabular'  
-  
- " vim-scripts repos，vim-scripts的访问地址，格式则如下：  
- Bundle 'L9'  
- Bundle 'FuzzyFinder'  
- " non github repos ，非git的访问地址的，格式如下：  
- Bundle 'git://git.wincent.com/command-t.git'  
- Bundle 'scrooloose/nerdtree'
- Bundle 'jistr/vim-nerdtree-tabs'
- Bundle 'Xuyuanp/nerdtree-git-plugin'
- Bundle 'suan/vim-instant-markdown'
- " ...  
-  
- filetype plugin indent on     " required!  
- "  
- " Brief help  
- " :BundleList          - list configured bundles  
- " :BundleInstall(!)    - install(update) bundles  
- " :BundleSearch(!) foo - search(or refresh cache first) for foo  
- " :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles  
- "  
- " see :h vundle for more details or wiki for FAQ  
- " NOTE: comments after Bundle command are not allowed..
+" Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
+call plug#begin('~/.vim/plugged')
+
+ Plug 'scrooloose/nerdtree'
+ Plug 'jistr/vim-nerdtree-tabs'
+ Plug 'Xuyuanp/nerdtree-git-plugin'
+ Plug 'suan/vim-instant-markdown'
+ Plug 'haya14busa/incsearch.vim' "高亮搜索
+ Plug 'vim-airline/vim-airline'
+ Plug 'vim-airline/vim-airline-themes'
+
+" Initialize plugin system
+call plug#end()
+
+
+" airline 设置  
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline_theme = 'powerlineish'
+let g:airline_left_sep = '▶'
+let g:airline_left_alt_sep = '❯'
+let g:airline_right_sep = '◀'
+let g:airline_right_alt_sep = '❮'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+
+" incsearch 高亮搜索配置
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+set hlsearch
+let g:incsearch#auto_nohlsearch = 1
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
