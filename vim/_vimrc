@@ -1,0 +1,88 @@
+" vim-plug
+call plug#begin('c:/Users/admin/vimfiles/autoload')
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'suan/vim-instant-markdown'
+Plug 'haya14busa/incsearch.vim' "高亮搜索
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'chxuan/vim-buffer'
+Plug 'chxuan/vim-edit'
+call plug#end()
+
+" 关闭NERDTree快捷键
+map <leader>t :NERDTreeToggle<CR>
+" 显示行号
+let NERDTreeShowLineNumbers=1
+let NERDTreeAutoCenter=1
+" 是否显示隐藏文件
+let NERDTreeShowHidden=1
+" 设置宽度
+let NERDTreeWinSize=31
+" 在终端启动vim时，共享NERDTree
+let g:nerdtree_tabs_open_on_console_startup=1
+" 忽略一下文件的显示
+let NERDTreeIgnore=['\.pyc','\~$','\.swp']
+" 显示书签列表
+"let NERDTreeShowBookmarks=1
+
+" airline 设置  
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline_theme = 'powerlineish'
+
+" incsearch 高亮搜索配置
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+set hlsearch
+let g:incsearch#auto_nohlsearch = 1
+" 设置buffer
+nnoremap <c-p> :PreviousBuffer<cr>
+nnoremap <c-n> :NextBuffer<cr>
+nnoremap <leader>d :CloseCurrentBuffer<cr>
+nnoremap <leader>D :BufOnly<cr>
+
+
+" GUI {{{
+set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+set termencoding=utf-8
+set encoding=utf-8
+colorscheme evening
+set t_co=256
+set showtabline=2
+set nobackup
+set relativenumber
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/mswin.vim
+source $VIMRUNTIME/menu.vim
+filetype on
+set cursorline
+set hlsearch
+set number
+syntax on
+set autoindent
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set showmatch
+set vb t_vb=
+set ruler
+set incsearch
+" 窗口大小
+set lines=45 columns=160
+" 分割出来的窗口位于当前窗口下边/右边
+set splitbelow
+set splitright
+"不显示工具/菜单栏
+set guioptions-=T
+set guioptions-=m
+set guioptions-=L
+set guioptions-=r
+set guioptions-=b
+"set showtabline=0 " 隐藏Tab栏 
+set nolist
+" set listchars=tab:?\ ,eol:?,trail:·,extends:>,precedes:<
+set guifont=Inconsolata:h12:cANSI
+" }}}
