@@ -25,12 +25,29 @@ let g:nerdtree_tabs_open_on_console_startup=1
 " 忽略一下文件的显示
 let NERDTreeIgnore=['\.pyc','\~$','\.swp']
 " 显示书签列表
-"let NERDTreeShowBookmarks=1
+let NERDTreeShowBookmarks=1
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
+
 
 " airline 设置  
-"let g:airline#extensions#tabline#enabled = 1
-"let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline_powerline_fonts=1 
 let g:airline_theme = 'powerlineish'
+"设置为双字宽显示，否则无法完整显示如:☆
+set ambiwidth=double
+let laststatus = 2
+let g:airline_powerline_fonts = 1   " 使用powerline打过补丁的字体
 
 " incsearch 高亮搜索配置
 map /  <Plug>(incsearch-forward)
@@ -81,8 +98,9 @@ set guioptions-=m
 set guioptions-=L
 set guioptions-=r
 set guioptions-=b
-"set showtabline=0 " 隐藏Tab栏 
+set showtabline=0 " 隐藏Tab栏 
 set nolist
 " set listchars=tab:?\ ,eol:?,trail:·,extends:>,precedes:<
-set guifont=Inconsolata:h12:cANSI
+set guifont=Source_Code_Pro_for_Powerline:h9:cANSI:qDRAFT
+
 " }}}
