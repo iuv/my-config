@@ -41,13 +41,11 @@ let g:NERDTreeIndicatorMapCustom = {
 
 " airline 设置  
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#buffer_nr_show = 0
+let g:airline#extensions#tabline#show_tab_nr = 0
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_powerline_fonts=1 
-let g:airline_theme = 'powerlineish'
-"设置为双字宽显示，否则无法完整显示如:☆
-set ambiwidth=double
-let laststatus = 2
-let g:airline_powerline_fonts = 1   " 使用powerline打过补丁的字体
+let g:airline_theme = 'onedark'
 
 " incsearch 高亮搜索配置
 map /  <Plug>(incsearch-forward)
@@ -55,11 +53,6 @@ map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 set hlsearch
 let g:incsearch#auto_nohlsearch = 1
-" 设置buffer
-nnoremap <c-p> :PreviousBuffer<cr>
-nnoremap <c-n> :NextBuffer<cr>
-nnoremap <leader>d :CloseCurrentBuffer<cr>
-nnoremap <leader>D :BufOnly<cr>
 
 
 " GUI {{{
@@ -101,6 +94,15 @@ set guioptions-=b
 set showtabline=0 " 隐藏Tab栏 
 set nolist
 " set listchars=tab:?\ ,eol:?,trail:·,extends:>,precedes:<
-set guifont=Source_Code_Pro_for_Powerline:h9:cANSI:qDRAFT
-
+set guifont=Source_Code_Pro_for_Powerline:h11:cANSI:qDRAFT
 " }}}
+"分屏窗口移动
+map <M-h> <C-W>h
+map <M-j> <C-W>j
+map <M-k> <C-W>k
+map <M-l> <C-W>l
+" 新建tab  Ctrl+t
+nnoremap <C-t>     :tabnew<CR>
+inoremap <C-t>     <Esc>:tabnew<CR>
+" tab 切换
+map <C-Tab> gt
