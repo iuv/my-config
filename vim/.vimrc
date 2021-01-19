@@ -43,6 +43,7 @@ call plug#begin('~/.vim/plugged')
  Plug 'haya14busa/incsearch.vim' "高亮搜索
  Plug 'vim-airline/vim-airline'
  Plug 'vim-airline/vim-airline-themes'
+ Plug 'tpope/vim-surround'
 
 " Initialize plugin system
 call plug#end()
